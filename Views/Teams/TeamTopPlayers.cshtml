@@ -1,0 +1,28 @@
+﻿@model List<NFLCrimeStats.Models.PlayerModel>
+@{
+    ViewData["Title"] = "Top Players";
+}
+
+<h2>Top Players for @ViewData["Team"]</h2>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Number of Arrests</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <p>@Html.ActionLink(linkText: item.Name, actionName: "PlayerCrimesAll", controllerName: "Crimes", routeValues: new { playerName = item.Name}, htmlAttributes: null)</p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(model => item.Arrest_Count)</p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

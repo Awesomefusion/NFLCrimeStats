@@ -1,0 +1,41 @@
+﻿@using NFLCrimeStats.Controllers
+
+@model List<NFLCrimeStats.Models.TeamModel>
+@{
+    ViewData["Title"] = "Teams";
+}
+
+<h2>Teams</h2>
+
+@{
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Team Name</th>
+                <th scope="col">Team City</th>
+                <th scope="col">Total Arrests</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+
+                    <p>@Html.ActionLink(linkText: item.Team_Name, actionName: "TeamTopPlayers", controllerName: "Teams", routeValues: new { team = item.Team, teamName = item.Team_Name }, htmlAttributes: null)</p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(model => item.Team_City)</p>
+                </td>
+                <td>
+                    <p>@Html.DisplayFor(model => item.Arrest_Count)</p>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+}

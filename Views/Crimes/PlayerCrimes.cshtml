@@ -1,0 +1,40 @@
+﻿@model List<NFLCrimeStats.Models.PlayerCrimes>
+@{
+    ViewData["Title"] = "Player Crimes";
+}
+
+<h2>Player Crimes</h2>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Description</th>
+            <th scope="col">Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            if (item.Category == (string)ViewData["Crime"])
+            {
+                <tr>
+                    <td>
+                        <p>@Html.DisplayFor(model => item.Name)</p>
+                    </td>
+                    <td>
+                        <p>@Html.DisplayFor(model => item.Category)</p>
+                    </td>
+                    <td>
+                        <p>@Html.DisplayFor(model => item.Description)</p>
+                    </td>
+                    <td>
+                        <p>@Html.DisplayFor(model => item.Date)</p>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

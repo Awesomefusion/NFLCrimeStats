@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Welcome to NFL Crime Statistics</h2>
+
+<p>Start by looking at one of these categories.</p>
+
+<p>@Html.ActionLink(linkText: "Top Crimes", actionName: "Index", controllerName: "Crimes", routeValues: new { }, htmlAttributes: null)</p>
+
+<p>@Html.ActionLink(linkText: "Top Teams", actionName: "Index", controllerName: "Teams", routeValues: new { }, htmlAttributes: null)</p>
+
+<p>@Html.ActionLink(linkText: "Top Players", actionName: "Index", controllerName: "Players", routeValues: new { }, htmlAttributes: null)</p>
